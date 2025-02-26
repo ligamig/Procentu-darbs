@@ -19,7 +19,7 @@ def augstskolasLatvija(atbildeDict):
     #kopejaisAugstskoluSkaits = 0
 latvijasAugstskolas = augstskolasLatvija(atbildeDict)
 
-#print(f"Latvijā ir {len(latvijasAugstskolas)} augstskolas.")
+print(f"Latvijā ir {len(latvijasAugstskolas)} augstskolas.")
 
 #2. uzd 
 #for uni in latvijasAugstskolas:
@@ -47,12 +47,23 @@ parize = sum(1 for uni in francijasAugstskolas if "Paris" in uni ["name"])
 print(f"No visām Francijas augstskolām, {parize} augstskolu nosaukumi satur vārdu 'Paris'.")
 
 #6. uzd
+def UNIschool(atbildeDict):
+    school = []
+    for uni in atbildeDict:
+        if "School" in uni ["name"]:
+            school.append(uni)
+    return school
+
+school = UNIschool(atbildeDict)
+print(f"Kopā ir {len(school)} augstskolas, kuru nosaukumā ir 'School'")
+
+#7. uzd
 https = sum(1 for uni in francijasAugstskolas if any(domain.startswith("https") for domain in uni ["web_pages"]))
 procenti = (https / len(francijasAugstskolas)) * 100 if francijasAugstskolas else 0
 
 print(f"No tām {https} augstskolām mājaslapas sākas ar https ({procenti:.2f}%)")
 
-#7. uzdevums
+#8. uzdevums
 eiropas_valstis = {
     "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria",
     "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece",
